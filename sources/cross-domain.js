@@ -15,14 +15,15 @@ function buscaDados() {
         url: "http://globoesporte.globo.com/futebol/brasileirao-serie-a/",
         success: function (data) {
             let page = document.createElement('DIV')
-            page.innerHTML = data   
+            page.innerHTML = data
             // Monta ARRAY referente a criacao da tabela
             let times = $(page).find('.tabela-times .tabela-body-linha')
-            for ( let i = 0 ; i < times.length ; i++ ) { 
+            for ( let i = 0 ; i < times.length ; i++ ) {
                 let time = times[i]
                 let nomeTime = $(time).find('.tabela-times-time-nome')[0].textContent
                 let posicaoTime = $(time).find('.tabela-times-posicao')[0].textContent
-                tabela.push({"clube": nomeTime, "posicao": posicaoTime})
+                let nomeImg = nomeTime.toLowerCase().replace(' ', '')+'.svg'
+                tabela.push({"clube": nomeTime, "posicao": posicaoTime, "imagem": nomeImg})
             }
             // Monta ARRAY referente aos confrontos da rodada
             let confrontos = $(page).find('.lista-de-jogos-conteudo .lista-de-jogos-item')
@@ -32,16 +33,16 @@ function buscaDados() {
                 let timeFora = $(confrontos[i]).find('.placar-jogo-equipes-nome')[1].textContent
                 jogos.push({"dataAndLocal": informacoes, "timeCasa": timeCasa, "timeFora": timeFora})
             }
+            
             writeFile(tabela, jogos)
         },
-        error: function() { 
+        error: function() {
             console.log('Fudeu deu erro!');
         },
     });
 }
 
 function writeFile(classificacao, confrontos) {
-    
     arrayClassificacao = 'classificacao = '+ JSON.stringify(classificacao)
     arrayConfrontos = 'jogos = '+ JSON.stringify(confrontos)
 
