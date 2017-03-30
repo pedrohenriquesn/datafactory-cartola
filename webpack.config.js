@@ -10,6 +10,14 @@ module.exports = {
             use: ['style-loader', 'css-loader']
         }],
         loaders: [
+            { 
+                test: /jquery-mousewheel/,
+                loader: "imports?define=>false&this=>window"
+            },
+            {
+                test: /malihu-custom-scrollbar-plugin/,
+                loader: "imports?define=>false&this=>window"
+            },
             {
                 test: /\.js$/,
                 exclude: /node_modules/,

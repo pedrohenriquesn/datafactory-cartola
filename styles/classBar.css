@@ -1,0 +1,55 @@
+.container-bar {
+    background-color: #999;
+    height: 100%;
+    width: 50px;
+    position: fixed;
+}
+.bar-max { width: 150px !important; } 
+
+.row-option {
+    display: flex;
+    width: 100%;
+    padding-top: 5px;
+    cursor: pointer;
+}
+
+.toggle-option {
+    width: 100%;
+    text-align: center;
+    font-size: 22px;
+    color: #FFF;
+}
+
+.row-bar {
+    display: flex;
+    width: 100%;
+    padding: 5px;
+    font-size: 12px;
+    font-family: sans-serif;
+    color: #FFF;
+}
+.row-bar:hover {
+    background-color: #888
+}
+
+.col-posi {
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+}
+
+.col-name {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.col-logo {
+    width: 20%;
+    display: flex;
+    align-items: center;
+}
+.mini { width: 100% !important; }
