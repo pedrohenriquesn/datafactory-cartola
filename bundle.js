@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 17);
+/******/ 	return __webpack_require__(__webpack_require__.s = 18);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -10406,7 +10406,7 @@ function toComment(sourceMap) {
   return '/*# ' + data + ' */';
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10).Buffer))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(11).Buffer))
 
 /***/ }),
 /* 2 */
@@ -10446,7 +10446,7 @@ var stylesInDom = {},
 	singletonElement = null,
 	singletonCounter = 0,
 	styleElementsInsertedAtTop = [],
-	fixUrls = __webpack_require__(21);
+	fixUrls = __webpack_require__(22);
 
 module.exports = function(list, options) {
 	if(typeof DEBUG !== "undefined" && DEBUG) {
@@ -10709,7 +10709,7 @@ function updateLink(linkElement, options, obj) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0)
-var FileSave = __webpack_require__(11)
+var FileSave = __webpack_require__(12)
 
 module.exports = function () {
     buscaDados()
@@ -10798,7 +10798,7 @@ function readClassificacaoJson() {
                                         '<div class="col-posi" style="display:none">'+obj[i].posicao+'</div>'+
                                         '<div class="col-name" style="display:none">'+obj[i].clube+'</div>'+
                                         '<div class="col-logo mini"><img src="'+imagem+'" class="img-responsive"></div>'+
-                                    '</div>')
+                                    '</div><hr class="dividerBar">')
             }
         },
         error: function() {
@@ -10814,27 +10814,26 @@ function readClassificacaoJson() {
 /* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
-// style-loader: Adds some css to the DOM by adding a <style> tag
+var $ = __webpack_require__(0)
 
-// load the styles
-var content = __webpack_require__(18);
-if(typeof content === 'string') content = [[module.i, content, '']];
-// add the styles to the DOM
-var update = __webpack_require__(2)(content, {});
-if(content.locals) module.exports = content.locals;
-// Hot Module Replacement
-if(false) {
-	// When the styles change, update the <style> tags
-	if(!content.locals) {
-		module.hot.accept("!!../../node_modules/css-loader/index.js!./classBar.css", function() {
-			var newContent = require("!!../../node_modules/css-loader/index.js!./classBar.css");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-	}
-	// When the module is disposed, remove the <style> tags
-	module.hot.dispose(function() { update(); });
+module.exports = function () {
+    toggleBarClassificacao()
+};
+
+function toggleBarClassificacao() {
+    let sizeBar = $('.container-bar')[0].style.width
+    if ( sizeBar == '50px' || sizeBar == '' ) {
+        $('.container-bar').animate({width: '150px'});
+        $('.icon-sidebar').toggle()
+    } else {
+        $('.container-bar').animate({width: '50px'});
+        $('.icon-sidebar').toggle()
+    }
+    $('.col-logo').toggleClass('mini')
+    $('.col-posi').fadeToggle('500')
+    $('.col-name').fadeToggle('500')
 }
+
 
 /***/ }),
 /* 7 */
@@ -10852,8 +10851,8 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!../../node_modules/css-loader/index.js!./main.css", function() {
-			var newContent = require("!!../../node_modules/css-loader/index.js!./main.css");
+		module.hot.accept("!!../../../../node_modules/css-loader/index.js!./classBar.css", function() {
+			var newContent = require("!!../../../../node_modules/css-loader/index.js!./classBar.css");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -10878,8 +10877,8 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!../../../node_modules/css-loader/index.js!./nanoscroller.css", function() {
-			var newContent = require("!!../../../node_modules/css-loader/index.js!./nanoscroller.css");
+		module.hot.accept("!!../../../../node_modules/css-loader/index.js!./main.css", function() {
+			var newContent = require("!!../../../../node_modules/css-loader/index.js!./main.css");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -10890,6 +10889,32 @@ if(false) {
 
 /***/ }),
 /* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(21);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// add the styles to the DOM
+var update = __webpack_require__(2)(content, {});
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../../../../node_modules/css-loader/index.js!./nanoscroller.css", function() {
+			var newContent = require("!!../../../../../node_modules/css-loader/index.js!./nanoscroller.css");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11010,7 +11035,7 @@ function fromByteArray (uint8) {
 
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11024,9 +11049,9 @@ function fromByteArray (uint8) {
 
 
 
-var base64 = __webpack_require__(9)
-var ieee754 = __webpack_require__(12)
-var isArray = __webpack_require__(13)
+var base64 = __webpack_require__(10)
+var ieee754 = __webpack_require__(13)
+var isArray = __webpack_require__(14)
 
 exports.Buffer = Buffer
 exports.SlowBuffer = SlowBuffer
@@ -12804,10 +12829,10 @@ function isnan (val) {
   return val !== val // eslint-disable-line no-self-compare
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(16)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(17)))
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_RESULT__;/* FileSaver.js
@@ -12993,7 +13018,7 @@ var saveAs = saveAs || (function(view) {
 
 if (typeof module !== "undefined" && module.exports) {
   module.exports.saveAs = saveAs;
-} else if (("function" !== "undefined" && __webpack_require__(14) !== null) && (__webpack_require__(15) !== null)) {
+} else if (("function" !== "undefined" && __webpack_require__(15) !== null) && (__webpack_require__(16) !== null)) {
   !(__WEBPACK_AMD_DEFINE_RESULT__ = function() {
     return saveAs;
   }.call(exports, __webpack_require__, exports, module),
@@ -13002,7 +13027,7 @@ if (typeof module !== "undefined" && module.exports) {
 
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports) {
 
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
@@ -13092,7 +13117,7 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
 
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports) {
 
 var toString = {}.toString;
@@ -13103,7 +13128,7 @@ module.exports = Array.isArray || function (arr) {
 
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports) {
 
 module.exports = function() {
@@ -13112,7 +13137,7 @@ module.exports = function() {
 
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports) {
 
 /* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {/* globals __webpack_amd_options__ */
@@ -13121,7 +13146,7 @@ module.exports = __webpack_amd_options__;
 /* WEBPACK VAR INJECTION */}.call(exports, {}))
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports) {
 
 var g;
@@ -13148,20 +13173,21 @@ module.exports = g;
 
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__styles_plugins_nanoscroller_css__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__styles_plugins_nanoscroller_css__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__styles_plugins_nanoscroller_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__styles_plugins_nanoscroller_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__styles_main_css__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__styles_main_css__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__styles_main_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__styles_main_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__styles_classBar_css__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__styles_classBar_css__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__styles_classBar_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__styles_classBar_css__);
 var $ = __webpack_require__(0)
 var cross = __webpack_require__(3);
 var readJson = __webpack_require__(5);
+var toggleBars = __webpack_require__(6);
 
 // importacoes de pluguins
 
@@ -13172,37 +13198,7 @@ __webpack_require__(4);
 
 document.body.onload = function() { readJson() }
 $(".btn-get").click(function(){ cross() });
-
-$(".toggle-option").click(function(){
-
-    let sizeBar = $('.container-bar')[0].style.width
-
-    if ( sizeBar == '50px' || sizeBar == '' ) {
-        $('.container-bar').animate({width: '150px'});
-    } else {
-        $('.container-bar').animate({width: '50px'});
-    }
-
-    $('.col-logo').toggleClass('mini')
-
-    $('.col-posi').fadeToggle('500')
-    $('.col-name').fadeToggle('500')
-
-});
-
-/***/ }),
-/* 18 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(1)(undefined);
-// imports
-
-
-// module
-exports.push([module.i, ".container-bar {\n    background-color: #999;\n    height: 100%;\n    width: 50px;\n    position: fixed;\n}\n.bar-max { width: 150px !important; } \n\n.row-option {\n    display: flex;\n    width: 100%;\n    padding-top: 5px;\n    cursor: pointer;\n}\n\n.toggle-option {\n    width: 100%;\n    text-align: center;\n    font-size: 22px;\n    color: #FFF;\n}\n\n.row-bar {\n    display: flex;\n    width: 100%;\n    padding: 5px;\n    font-size: 12px;\n    font-family: sans-serif;\n    color: #FFF;\n}\n.row-bar:hover {\n    background-color: #888\n}\n\n.col-posi {\n    width: 20%;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    font-size: 22px;\n}\n\n.col-name {\n    width: 60%;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.col-logo {\n    width: 20%;\n    display: flex;\n    align-items: center;\n}\n.mini { width: 100% !important; }", ""]);
-
-// exports
-
+$(".toggle-option").click(function(){ toggleBars() });
 
 /***/ }),
 /* 19 */
@@ -13213,7 +13209,7 @@ exports = module.exports = __webpack_require__(1)(undefined);
 
 
 // module
-exports.push([module.i, ".container-page {\n    background-color: blue;\n    height: 100px;\n}", ""]);
+exports.push([module.i, ".container-bar {\n    background-color: #FFFFFF;\n    /*border-bottom: #e2e2e2;*/\n    border-right: 1px solid #e8e8e8;\n    height: 100%;\n    width: 50px;\n    position: fixed;\n}\n.bar-max { width: 150px !important; } \n\n.row-option {\n    display: flex;\n    width: 100%;\n    padding-top: 5px;\n    cursor: pointer;\n}\n\n.toggle-option {\n    width: 100%;\n    text-align: center;\n    font-size: 22px;\n    color: #666666;\n    opacity: 0.7;\n}\n.toggle-option:hover {\n    opacity: 1;\n}\n\n.icon-sidebar.head {\n    display: none;\n    font-size: 11px;\n    font-family: opensans-regular;\n}\n\n.row-bar {\n    display: flex;\n    width: 100%;\n    padding: 5px;\n    font-size: 12px;\n    font-family: sans-serif;\n    color: #242424;\n}\n.row-bar:hover { background-color: #888888; }\n\n.col-posi {\n    width: 20%;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    font-size: 22px;\n    color: #878787;\n}\n\n.col-name {\n    width: 60%;\n    display: flex;\n    align-items: center;\n    justify-content: flex-start;\n}\n\n.col-logo {\n    width: 20%;\n    display: flex;\n    align-items: center;\n}\n.mini { width: 100% !important; }\n\nhr.dividerBar { \n    margin: 0 !important;\n    border: 0; \n    height: 1px; \n    background-image: -webkit-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);\n    background-image: -moz-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);\n    background-image: -ms-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);\n    background-image: -o-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0); \n}", ""]);
 
 // exports
 
@@ -13227,13 +13223,27 @@ exports = module.exports = __webpack_require__(1)(undefined);
 
 
 // module
-exports.push([module.i, "/** initial setup **/\n.nano {\n  position : relative;\n  width    : 100%;\n  height   : 100%;\n  overflow : hidden;\n}\n.nano > .nano-content {\n  position      : absolute;\n  overflow      : scroll;\n  overflow-x    : hidden;\n  top           : 0;\n  right         : 0;\n  bottom        : 0;\n  left          : 0;\n}\n.nano > .nano-content:focus {\n  outline: thin dotted;\n}\n.nano > .nano-content::-webkit-scrollbar {\n  display: none;\n}\n.has-scrollbar > .nano-content::-webkit-scrollbar {\n  display: block;\n}\n.nano > .nano-pane {\n  background : rgba(0,0,0,.25);\n  position   : absolute;\n  width      : 10px;\n  right      : 0;\n  top        : 0;\n  bottom     : 0;\n  visibility : hidden\\9; /* Target only IE7 and IE8 with this hack */\n  opacity    : .01;\n  -webkit-transition    : .2s;\n  -moz-transition       : .2s;\n  -o-transition         : .2s;\n  transition            : .2s;\n  -moz-border-radius    : 5px;\n  -webkit-border-radius : 5px;\n  border-radius         : 5px;\n}\n.nano > .nano-pane > .nano-slider {\n  background: #444;\n  background: rgba(0,0,0,.5);\n  position              : relative;\n  margin                : 0 1px;\n  -moz-border-radius    : 3px;\n  -webkit-border-radius : 3px;\n  border-radius         : 3px;\n}\n.nano:hover > .nano-pane, .nano-pane.active, .nano-pane.flashed {\n  visibility : visible\\9; /* Target only IE7 and IE8 with this hack */\n  opacity    : 0.99;\n}", ""]);
+exports.push([module.i, ".container-page {\n    background-color: #F1F1F1;\n    height: 3000px;\n    margin-left: 50px;\n}\n\n/*@font-face {\n    font-family: 'alex';\n    font-style: normal;\n    font-weight: normal;\n    src: url(\"../fonts/alex/alex_book.otf\");\n}\n\n.fonteTeste1 {font-family: alex;}*/\n/*.fonteTeste2 {font-family: }\n.fonteTeste3 {font-family: }\n.fonteTeste4 {font-family: }*/", ""]);
 
 // exports
 
 
 /***/ }),
 /* 21 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(1)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, "/** initial setup **/\n.nano {\n  position : relative;\n  width    : 100%;\n  height   : 100%;\n  overflow : hidden;\n}\n.nano > .nano-content {\n  position      : absolute;\n  overflow      : scroll;\n  overflow-x    : hidden;\n  top           : 0;\n  right         : 0;\n  bottom        : 0;\n  left          : 0;\n}\n.nano > .nano-content:focus {\n  outline: thin dotted;\n}\n.nano > .nano-content::-webkit-scrollbar {\n  display: none;\n}\n.has-scrollbar > .nano-content::-webkit-scrollbar {\n  display: block;\n}\n.nano > .nano-pane {\n  background : rgba(0,0,0,.25);\n  position   : absolute;\n  width      : 10px;\n  right      : 0;\n  top        : 0;\n  bottom     : 0;\n  visibility : hidden\\9; /* Target only IE7 and IE8 with this hack */\n  opacity    : .01;\n  -webkit-transition    : .2s;\n  -moz-transition       : .2s;\n  -o-transition         : .2s;\n  transition            : .2s;\n  -moz-border-radius    : 5px;\n  -webkit-border-radius : 5px;\n  border-radius         : 5px;\n}\n.nano > .nano-pane > .nano-slider {\n  background: #444;\n  background: rgba(0,0,0,.5);\n  position              : relative;\n  margin                : 0 1px;\n  -moz-border-radius    : 3px;\n  -webkit-border-radius : 3px;\n  border-radius         : 3px;\n}\n.nano:hover > .nano-pane, .nano-pane.active, .nano-pane.flashed {\n  visibility : visible\\9; /* Target only IE7 and IE8 with this hack */\n  opacity    : 0.99;\n}", ""]);
+
+// exports
+
+
+/***/ }),
+/* 22 */
 /***/ (function(module, exports) {
 
 

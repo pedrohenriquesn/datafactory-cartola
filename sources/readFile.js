@@ -19,7 +19,7 @@ function readClassificacaoJson() {
                                         '<div class="col-posi" style="display:none">'+obj[i].posicao+'</div>'+
                                         '<div class="col-name" style="display:none">'+obj[i].clube+'</div>'+
                                         '<div class="col-logo mini"><img src="'+imagem+'" class="img-responsive"></div>'+
-                                    '</div>')
+                                    '</div><hr class="dividerBar">')
             }
         },
         error: function() {

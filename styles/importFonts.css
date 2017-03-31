@@ -1,0 +1,16 @@
+@font-face {
+    font-family: alex;
+    src: url("../fonts/alex/alex_book.otf");
+}
+@font-face {
+    font-family: jonah;
+    src: url("../fonts/jonah/Jonah.ttf");
+}
+@font-face {
+    font-family: letters;
+    src: url("../fonts/letters/movie_letters.ttf");
+}
+@font-face {
+    font-family: serenity;
+    src: url("../fonts/serenity/serenity.ttf");
+}
